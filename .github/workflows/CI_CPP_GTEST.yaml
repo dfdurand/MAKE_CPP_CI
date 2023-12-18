@@ -27,4 +27,6 @@ jobs:
 
         - name: clean project
           run:  make clean
+        - name:  delete executable 
+          run:  make delete
      
