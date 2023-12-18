@@ -1,0 +1,30 @@
+name: MAKE CI-C/++ 
+
+on:
+  push:
+      branches: [ main ]
+  pull_request:
+      branches: [ main ]
+
+jobs:
+  build-and-test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+
+        - name: install make and Googletest
+          run: sudo apt-get install libgtest-dev make 
+
+        - name: configure or bluid  project
+          run: make
+
+        - name: run main program
+          run: make run
+
+        - name: make test
+          run: make test
+
+        - name: clean project
+          run:  make clean
+     
